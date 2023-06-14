@@ -1,0 +1,95 @@
+<%- include('header') %>
+
+  <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+  <!-- ============================================================== -->
+  <!-- ============================================================== -->
+  <!-- Page wrapper  -->
+  <!-- ============================================================== -->
+  <div class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <div class="page-breadcrumb">
+      <div class="row">
+        <div class="col-12 d-flex no-block align-items-center">
+          <h4 class="page-title">Tables</h4>
+          <div class="ms-auto text-end">
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">
+                  Library
+                </li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+    <div class="container-fluid">
+      <!-- ============================================================== -->
+      <!-- Start Page Content -->
+      <!-- ============================================================== -->
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title mb-0">Static Table</h5>
+            </div>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">no</th>
+                  <th scope="col">name</th>
+                  <th scope="col">email</th>
+                  <th scope="col">password</th>
+                  <th scope="col">avatar</th>
+                  <th scope="col">action</th>
+                </tr>
+              </thead>
+              <tbody>
+
+          <% for(var s of record){ %>
+                <tr>
+                  <th scope="row">1</th>
+                  <td><a href="/view_profile/<%= s.id %>"><%= s.name %></a></td>
+                  <td><%= s.email %></td>
+                  <td><%= s.password %></td>
+                  <td> <img src="<%= s.avatar %>" height="100" width="100"> </td>
+                  <td> <a href="/deletedata/<%= s.id %>">delete</a> || <a href="/updatedata/<%= s.id %>">update</a> </td>
+                </tr>
+          <% } %> 
+
+              </tbody>
+            </table>
+          </div>
+          
+      </div>
+      <!-- ============================================================== -->
+      <!-- End PAge Content -->
+      <!-- ============================================================== -->
+      <!-- ============================================================== -->
+      <!-- Right sidebar -->
+      <!-- ============================================================== -->
+      <!-- .right-sidebar -->
+      <!-- ============================================================== -->
+      <!-- End Right sidebar -->
+      <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Container fluid  -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- footer -->
+    <!-- ============================================================== -->
+    <%- include('footer') %>
+
+      </body>
+
+      </html>

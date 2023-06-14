@@ -1,0 +1,138 @@
+<%- include('header') %>
+
+  <!-- ============================================================== -->
+  <!-- End Topbar header -->
+  <!-- ============================================================== -->
+  <!-- ============================================================== -->
+  <!-- Left Sidebar - style you can find in sidebar.scss  -->
+  <!-- ============================================================== -->
+  
+  <!-- ============================================================== -->
+  <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+  <!-- ============================================================== -->
+  <!-- ============================================================== -->
+  <!-- Page wrapper  -->
+  <!-- ============================================================== -->
+  <div class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <div class="page-breadcrumb">
+      <div class="row">
+        <div class="col-12 d-flex no-block align-items-center">
+          <h4 class="page-title">Form Basic</h4>
+          <div class="ms-auto text-end">
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">
+                  Library
+                </li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+    <div class="container-fluid">
+      <!-- ============================================================== -->
+      <!-- Start Page Content -->
+      <!-- ============================================================== -->
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card">
+            <form class="form-horizontal" method="POST" action="/Editprofilepage" enctype="multipart/form-data">
+            <input type="hidden" name="editId" value="<%= record.user %>">  
+              <div class="card-body">
+                <h4 class="card-title">Personal Info</h4>
+
+                <div class="form-group row">
+                  <label class="col-sm-3 text-end control-label col-form-label">Name</label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" name="name" placeholder="First Name Here" value="<% locals.user.name %>" disabled/>
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <label class="col-sm-3 text-end control-label col-form-label">Select Gender</label>
+                  <div class="col-sm-9">
+                    <input type="radio" name="gender" value="male" <% record.gender == 'male' %> />Male
+                    <input type="radio" name="gender" value="female" <% record.gender == 'female'  %> />Female
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <label class="col-sm-3 text-end control-label col-form-label">Select Hobby</label>
+                  <div class="col-sm-9">
+                    <input type="checkbox" name="hobby[]" value="Reading" <% record.hobby = 'Reading' %>>Reading
+                    <input type="checkbox" name="hobby[]" value="Music" <% record.hobby = 'Music' %>>Music
+                    <input type="checkbox" name="hobby[]" value="Cycling" <% record.hobby = 'Cycling' %>>Cycling
+                  </div>
+                </div>
+
+                <div class="form-group row">
+
+                  <% var city=["surat","Vadodara","Rajkot","Ahamdabad","Navasari"] %>
+
+                    <label class="col-sm-3 text-end control-label col-form-label">Select City</label>
+                    <div class="col-sm-9">
+                      <select name="city" class="form-control">
+                        <option value="">--select city--</option>
+                        <% city.forEach(function(e,i){ %>
+                          <option value="<%= e %>" <% record.city == e %> ><%= e %></option>
+                        <% }); %>
+                      </select>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                  <label class="col-sm-3 text-end control-label col-form-label">Message</label>
+                  <div class="col-sm-9">
+                    <textarea class="form-control" name="description">   <%= record.description %></textarea>
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <label class="col-sm-3 text-end control-label col-form-label">Select Image</label>
+                  <div class="col-sm-9">
+                    <input type="file" class="form-control" name="avatar"/><br><img src="<%= record.avatar %>" height="100" width="100">
+                  </div>
+                </div>
+
+                <div class="border-top">
+                  <div class="card-body">
+                    <a href="/profile">
+                      <button type="submit" name="submit" value="submit" class="btn btn-primary">Submit</button>
+                    </a>
+                  </div>
+                </div>
+
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- editor -->
+      <!-- ============================================================== -->
+      <!-- End PAge Content -->
+      <!-- ============================================================== -->
+      <!-- ============================================================== -->
+      <!-- Right sidebar -->
+      <!-- ============================================================== -->
+      <!-- .right-sidebar -->
+      <!-- ============================================================== -->
+      <!-- End Right sidebar -->
+      <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Container fluid  -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- footer -->
+    <!-- ============================================================== -->
+    <%- include('footer') %>    
